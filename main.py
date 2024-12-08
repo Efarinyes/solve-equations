@@ -38,7 +38,9 @@ class Equation(ABC):
             else:
                 terms.append(f"{coefficient:+}x**{n}")
         equation_string = ' '.join(terms) + ' = 0'
-        return re.sub(r"(?<!\d)1(?=x)", "", equation_string.strip("+"))        
+        equation_string = re.sub(r"([+-])(\d)", r"\1 \2", equation_string.strip("+"))
+        equation_string = re.sub(r"(?<!\d)1(?=x)", "", equation_string)
+        return equation_string
 
     @abstractmethod
     def solve(self):
