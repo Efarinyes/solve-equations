@@ -115,7 +115,7 @@ def solver(equation):
         output_string += f'{result:^24}\n'
     output_string += f'\n{"Details":-^24}\n\n'
     details = equation.analyze()
-    
+
     match details:
         case {'slope': slope, 'intercept': intercept}:
             details_list = [f'slope = {slope:.3f}',f'y-intercept = {intercept:.3f}']
@@ -126,7 +126,14 @@ def solver(equation):
         output_string +=f'{result}\n'
     return output_string
 
+
+
+
+
 lin_eq = LinearEquation(2, 3)
+
+# quadr_eq = QuadraticEquation(1, 2, 1) 
+print(solver(lin_eq))
 
 
 
